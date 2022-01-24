@@ -1,0 +1,304 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+body{
+  background-image: image-url("22205780.jpg");
+
+
+  .text{
+    color: white;
+    font-weight: 100px;
+    padding-bottom: 10px;
+  }
+}
+.top-visual{
+  width: 100%;
+  height: 427px;
+  background-color: rgba(0,0,0,0.5);
+
+
+
+  .visual-image{
+    background-image: image-url("1425915_s.jpg");
+    background-size: cover;
+    width: 80%;
+    height: 427px;
+    margin: auto;
+
+    .visual-logo-back {
+      background-color: rgba(0,0,0,0.45);
+      height: 427px;
+      width: 40%;
+
+
+      .logo-box {
+        height: 120px;
+        width: 32%;
+        position: absolute;
+        top: 195px;
+
+
+        .visual-logo {
+          background-image: image-url("SUSHIPshiro.png");
+          height: 70%;
+          width: 100%;
+          background-size: 100% 100%;
+        }
+      }
+    }
+
+
+  }
+}
+.wrapper{
+  background: #50a3a2;
+background: -webkit-linear-gradient(top left, #666666 0%, #cccccc 100%);
+background: -moz-linear-gradient(top left, #666666 0%, #cccccc 100%);
+background: -o-linear-gradient(top left, #666666 0%, #cccccc 100%);
+background: linear-gradient(to bottom right, #666666 0%, #cccccc 100%);
+
+  position: absolute;
+  width: 800px;
+  height: 700px;
+  left: 0;
+  right: 0;
+  margin: 50px auto;
+  overflow: hidden;
+  border-radius: 40px 40px 40px 40px;
+
+  &.form-success{
+    .container{
+      h1{
+        transform: translateY(85px);
+      }
+    }
+  }
+}
+
+
+
+.wrappers{
+  background: #50a3a2;
+background: -webkit-linear-gradient(top left, #666666 0%, #cccccc 100%);
+background: -moz-linear-gradient(top left, #666666 0%, #cccccc 100%);
+background: -o-linear-gradient(top left, #666666 0%, #cccccc 100%);
+background: linear-gradient(to bottom right, #666666 0%, #cccccc 100%);
+
+  position: absolute;
+  width: 800px;
+  height: 850px;
+  left: 0;
+  right: 0;
+  margin: 50px auto;
+  overflow: hidden;
+  border-radius: 40px 40px 40px 40px;
+
+  &.form-success{
+    .container{
+      h1{
+        transform: translateY(85px);
+      }
+    }
+  }
+}
+.table{
+    background: #50a3a2;
+background: -webkit-linear-gradient(top left, #666666 0%, #cccccc 100%);
+background: -moz-linear-gradient(top left, #666666 0%, #cccccc 100%);
+background: -o-linear-gradient(top left, #666666 0%, #cccccc 100%);
+background: linear-gradient(to bottom right, #666666 0%, #cccccc 100%);
+}
+.container{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+  height: 400px;
+  text-align: center;
+
+  h1{
+    font-size: 40px;
+    color: white;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-put;
+    font-weight: 700;
+  }
+}
+span{
+  margin: 0 auto;
+
+
+  a{
+    color: white;
+
+  }
+}
+
+.name{
+  a{
+    color: white;
+
+  }
+}
+form{
+  padding: 10px 0;
+  position: relative;
+  z-index: 2;
+
+  .actions{
+    input{
+      color: white;
+
+    }
+  }
+
+  input{
+    display: block;
+    // appearance: none;
+    outline: 0;
+    border: 1px solid fade(white, 40%);
+    background-color: rgba(255,255,255,0.2);
+
+
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: 0 auto 20px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+
+    color: grey;
+
+    transition-duration: 0.25s;
+    font-weight: 700;
+
+    &:hover{
+      background-color: fade(white, 40%);
+    }
+
+    &:focus{
+      background-color: white;
+      width: 300px;
+
+      color: prim;
+
+    }
+  }
+
+  textarea{
+    display: block;
+    appearance: none;
+    outline: 0;
+    border: 1px solid fade(white, 40%);
+    background-color: rgba(255,255,255,0.2);
+
+
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: 0 auto 20px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+
+    color: grey;
+
+    transition-duration: 0.25s;
+    font-weight: 700;
+
+    &:hover{
+      background-color: fade(white, 40%);
+    }
+
+    &:focus{
+      background-color: white;
+      width: 300px;
+
+      color: prim;
+
+    }
+  }
+
+  button{
+    appearance: none;
+    outline: 0;
+    background-color: #d6ffd6;
+    border: 0;
+    padding: 10px 15px;
+    color: #d6ffd6;
+    border-radius: 3px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 18px;
+    transition-duration: 0.25s;
+
+    &:hover{
+      background-color: #d6ffd6;
+    }
+  }
+}
+
+.search{
+  form{
+
+    input{
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: black;
+      font-weight: 500;
+    }
+  }
+}
+
+
+.img-responsive {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.main{
+  .card{
+  height: 50%;
+  width: 50%;
+  margin: auto;
+
+  }
+}
+
+
+.bg-bubbles{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: 1;
+
+
+}
+
+@-webkit-keyframes square {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-700px) rotate(600deg); }
+}
+@keyframes square {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-700px) rotate(600deg); }
+}

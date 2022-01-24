@@ -1,0 +1,54 @@
+<div class="texts-wrapper">
+   <div class="contents-title text-center">
+     <div style="text-align: center; margin: 30px 0; color: white; background-color: rgba(0,0,0,0.5);">
+       <h1><strong>投稿詳細</strong></h1>
+     </div>
+     <%#投稿詳細時%>
+     <div class="main">
+           <div class="card">
+             <%= attachment_image_tag @post, :postimage, class: "bd-placeholder-img card-img-top" %>
+               <div class="card-body">
+                 <p class="card-title"><strong>店名</strong>：<%= @post.name %></p>
+                 <p><strong>住所</strong>：<%= @post.address %></p>
+                 <table style="margin: auto;">
+                   <tbody>
+                     <tr>
+                       <td><%= attachment_image_tag(@post.customer, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:"40x40" ) %></td>
+                       <td><p class="card-title"><strong><%= @post.customer.nickname %></strong></p></td>
+                       <td>（<%= @post.customer.age %>）</td>
+                       <td><%= @post.customer.gender %></td>
+
+                       <td id="favorite_buttons_<%= @post.id %>">
+                         <%= render "public/favorites/favorites", post: @post %>
+                       </td>
+                       <td class="post-evaluation" data-score="<%= @post.evaluation %>"></td>
+                     </tr>
+                   </tbody>
+                 </table>
+                 <script>
+                   $('.post-evaluation').raty({
+                     readOnly: true,
+                     score: function() {
+                       return $(this).attr('data-score');
+                     },
+                     starOff:  '<%= asset_path('star-off.png') %>',    //imagesフォルダより星画像の呼び出し
+                     starOn : '<%= asset_path('star-on.png') %>',
+                     starHalf: '<%= asset_path('star-half.png') %>',
+                   });
+                 </script>
+                 <p><strong>caption</strong></p>
+                 <div><%= @post.caption %></div>
+                 <!--コメント一覧部分-->
+                    <!--divタグのclassをid="comments_area"に変更-->
+                 <div id="comments_area">
+                   <%= render 'public/comments/post_comments', post: @post %>
+                 </div>
+                 <div class="new-comment">
+                   <%= render 'public/comments/form', post: @post, comment: @comment %>
+                 </div>
+               </div>
+           </div>
+         </div>
+     </div>
+   </div>
+ </div>

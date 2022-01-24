@@ -1,0 +1,29 @@
+<div style="text-align: center; margin: 30px 0; color: white; background-color: rgba(0,0,0,0.5);">
+  <h1>USERS</h1>
+</div>
+<%#会員一覧%>
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>ニックネーム</th>
+      <th>性別</th>
+      <th>投稿数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><td><%= attachment_image_tag(customer, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:"40x40" ) %></td></td>
+        <td class="name">
+          <%= link_to customer_path(customer.id) do %>
+          　<%= customer.nickname %>
+          <% end %>
+        </td>
+        <td><%= customer.gender %></td>
+        <td><%= customer.posts.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

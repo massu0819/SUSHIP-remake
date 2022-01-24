@@ -1,0 +1,23 @@
+<div class="wrapper">
+ <div class="container">
+  <h1>Welcome</h1>
+  <!--<form action="#">-->
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field input" style="margin-bottom: 50px;">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    </div>
+
+    <div class="field input" style="margin-bottom: 50px;">
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+    </div>
+
+
+    <div class="button actions" style="margin-bottom: 50px;">
+      <%= f.submit "Log in", id: "login-button" %>
+    </div>
+  <% end %>
+  <!--</form>-->
+ </div>
+
+</div>
+
