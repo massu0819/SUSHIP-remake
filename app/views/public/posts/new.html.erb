@@ -25,6 +25,22 @@
           <td><%= f.text_area :caption, autofocus: true, placeholder: "キャプション" %></td>
         </tr>
         <tr>
+          <td>味</td>
+          <td><%= f.select :taste, ['0', '1', '2', '3', '4', '5'], include_blank: "選択して下さい" %></td>
+        </tr>
+        <tr>
+          <td>価格</td>
+          <td><%= f.select :price, ['0', '1', '2', '3', '4', '5'], include_blank: "選択して下さい" %></td>
+        </tr>
+        <tr>
+          <td>雰囲気</td>
+          <td><%= f.select :mood, ['0', '1', '2', '3', '4', '5'], include_blank: "選択して下さい" %></td>
+        </tr>
+        <tr>
+          <td>アクセス</td>
+          <td><%= f.select :access, ['0', '1', '2', '3', '4', '5'], include_blank: "選択して下さい" %></td>
+        </tr>
+        <tr>
           <td></td>
           <td>
             <div id="evaluate_stars">

@@ -50,5 +50,32 @@
            </div>
          </div>
      </div>
+     <canvas id="myChart" class="chart"></canvas>
+      <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ["味", "値段", "雰囲気", "アクセス"],
+          datasets:
+          [
+              {
+              label: 'ステータス',
+              backgroundColor: 'rgba(238,252,223,0.4)',
+              borderColor: 'rgba(122,255,129,0.2)',
+              data: [<%= @post.taste %>, <%= @post.price %>, <%= @post.mood %>, <%= @post.access %>]
+              },
+          ]
+        },
+        options: {
+            scale: {
+                ticks: {
+                    suggestedMin: 0,
+                    suggestedMax: 5
+                }
+            }
+        }
+      });
+      </script>
    </div>
  </div>
