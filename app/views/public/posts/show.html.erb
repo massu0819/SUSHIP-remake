@@ -1,11 +1,13 @@
 <div class="texts-wrapper">
    <div class="contents-title text-center">
-     <div style="text-align: center; margin: 30px 0; color: white; background-color: rgba(0,0,0,0.5);">
-       <h1><strong>投稿詳細</strong></h1>
+     <div style="width: 40%; margin: auto; ">
+         <div style="text-align: center; margin: 30px 0; color: #2f4f4f; border: 0.5rem solid #2f4f4f; border-radius: 12px;">
+           <h1><strong>投稿詳細</strong></h1>
+         </div>
      </div>
      <%#投稿詳細時%>
      <div class="main">
-           <div class="card">
+           <div class="card" style="border: 0.5rem solid #2f4f4f; background-color:rgba(255,255,255,0.25); color: white;">
              <%= attachment_image_tag @post, :postimage, class: "bd-placeholder-img card-img-top" %>
                <div class="card-body">
                  <p class="card-title"><strong>店名</strong>：<%= @post.name %></p>
@@ -50,32 +52,55 @@
            </div>
          </div>
      </div>
-     <canvas id="myChart" class="chart"></canvas>
-      <script>
-      var ctx = document.getElementById("myChart");
-      var myChart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-          labels: ["味", "値段", "雰囲気", "アクセス"],
-          datasets:
-          [
-              {
-              label: 'ステータス',
-              backgroundColor: 'rgba(238,252,223,0.4)',
-              borderColor: 'rgba(122,255,129,0.2)',
-              data: [<%= @post.taste %>, <%= @post.price %>, <%= @post.mood %>, <%= @post.access %>]
-              },
-          ]
-        },
-        options: {
-            scale: {
-                ticks: {
-                    suggestedMin: 0,
-                    suggestedMax: 5
-                }
-            }
-        }
-      });
-      </script>
+     <div style="width: 500px; height: 500px; margin: auto;">
+         <canvas id="myChart" ></canvas>
+          <script>
+          var ctx = document.getElementById("myChart");
+          var myChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+              labels: ["味", "値段", "雰囲気", "アクセス"],
+              datasets:
+              [
+                  {
+                  label: 'ステータス',
+                  backgroundColor: 'rgba(128,101,75,0.5)',
+                  borderColor: 'rgb(128,101,75)',
+                  borderWidth: 3,
+                  data: [<%= @post.taste %>, <%= @post.price %>, <%= @post.mood %>, <%= @post.access %>]
+                  },
+              ]
+            },
+            options: {
+                scales: {
+                  r: {
+                    //グラフの最小値・最大値
+                    min: 0,
+                    max: 5,
+
+                    //背景色
+                    backgroundColor: '#2f4f4f',
+                    //グリッドライン
+                    grid: {
+                      color: 'rgb(105,179,179)',
+                    },
+                    ticks: {
+                        stepSize: 1,
+                    },
+                    //アングルライン
+                    angleLines: {
+                      color: 'rgb(105,179,179)',
+                      lineWidth: 3,
+                    },
+                    //各項目のラベル
+                    pointLabels: {
+                      color: 'white',
+                    },
+                  },
+                },
+            },
+          });
+          </script>
+     </div>
    </div>
  </div>

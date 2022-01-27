@@ -20,6 +20,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
  ("#login-button").click(function(event){
     event.preventDefault();
 
