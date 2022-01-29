@@ -18,7 +18,7 @@
  @import 'font-awesome';
 
 body{
-  // background-color: #80654B;
+  background-color: #80654B;
 
 
   .text{
@@ -27,59 +27,7 @@ body{
     padding-bottom: 10px;
   }
 }
-.top-visual{
-  width: 100%;
-  height: 427px;
-  background-color: rgba(0,0,0,0.5);
 
-
-
-  .visual-image{
-    background-image: image-url("1425915_s.jpg");
-    background-size: cover;
-    width: 80%;
-    height: 427px;
-    margin: auto;
-
-    .visual-logo-back {
-      background-color: rgba(0,0,0,0.45);
-      height: 427px;
-      width: 40%;
-
-
-      .logo-box {
-        height: 120px;
-        width: 32%;
-        position: absolute;
-        top: 195px;
-
-
-        .visual-logo {
-          background-image: image-url("SUSHIPshiro.png");
-          height: 70%;
-          width: 100%;
-          background-size: 100% 100%;
-          animation-name: blurAnime;
-          animation-duration: 3s;
-          animation-fill-mode: forwards;
-
-        }
-        @keyframes blurAnime{
-          from {
-            filter: blur(10px);
-            transform: scale(1.02);
-          }
-          to {
-            filter: blur(0);
-            transform: scale(1);
-          }
-        }
-      }
-    }
-
-
-  }
-}
 .wrapper{
   background: #50a3a2;
 background: -webkit-linear-gradient(top left, #666666 0%, #cccccc 100%);
@@ -352,7 +300,7 @@ nav {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   transition: all .5s;
-  z-index: 3;
+  z-index: 100;
   opacity: 0;
 }
 .open nav {
@@ -404,7 +352,7 @@ nav .inner ul li a:hover {
   height: 30px;
   transition: all .5s;
   cursor: pointer;
-  z-index: 3;
+  z-index: 1000;
 }
 .btn-trigger span {
   display: block;
@@ -536,6 +484,141 @@ nav .inner ul li a:hover {
   height: 100%;
   background: #000;
   opacity: .8;
-  z-index: 2;
+  z-index: 50;
 
+}
+/*画面遷移アニメーション*/
+.splashbg {
+  display: none;
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear .splashbg {
+  display: block;
+  content: "";
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100px;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  background-color: #D1946B; /*伸びる背景色の設定*/
+  animation-name: PageAnime;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes PageAnime {
+  0% {
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  50% {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  50.001% {
+    transform-origin: right;
+  }
+  100% {
+    transform-origin: right;
+    transform: scaleX(0);
+  }
+}
+
+/*画面遷移の後現れるコンテンツ設定*/
+#container {
+  opacity: 0; /*はじめは透過0に*/
+}
+
+/*bodyにappearクラスがついたら出現*/
+body.appear #container {
+  animation-name: PageAnimeAppear;
+  animation-duration: 1s;
+  animation-delay: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes PageAnimeAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*========= レイアウトのためのCSS ===============*/
+
+h1 {
+  font-size: 50px;
+  margin-top: 10px;
+}
+
+#header {
+  background: #2f4f4f;
+  color: #fff;
+  padding: 5px;
+
+}
+.top-visual{
+  width: 100%;
+  height: 427px;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 10;
+
+
+
+  .visual-image{
+    background-image: image-url("1425915_s.jpg");
+    background-size: cover;
+    width: 80%;
+    height: 427px;
+    margin: auto;
+    // animation-name: blurAnime;
+    // animation-duration: 3s;
+    // animation-fill-mode: forwards;
+
+    .visual-logo-back {
+      background-color: rgba(0,0,0,0.45);
+      height: 427px;
+      width: 40%;
+
+
+      .logo-box {
+        height: 100%;
+        width: 100%;
+        padding-top: 185px;
+
+
+        .visual-logo {
+          background-image: image-url("SUSHIPshiro.png");
+          height: 70%;
+          width: 100%;
+          background-size: contain;
+          background-repeat: no-repeat;
+          // animation-name: blurAnime;
+          // animation-duration: 3s;
+          // animation-fill-mode: forwards;
+          // animation-delay: 2s;
+
+        }
+        @keyframes blurAnime{
+          from {
+            filter: blur(30px);
+            transform: scale(1.02);
+          }
+          to {
+            filter: blur(0);
+            transform: scale(1);
+          }
+        }
+      }
+    }
+
+
+  }
 }
