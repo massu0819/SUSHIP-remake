@@ -32,39 +32,89 @@ $(window).on('load',function(){
  //=====ここから背景が伸びた後に動かしたいJSをまとめたい場合は
   $('.splashbg').on('animationend', function() {
     $('.visual-logo').addClass('appear');
+      $(function($) {
+        var $nav   = $('#navArea');
+        var $btn   = $('.btn-trigger');
+        var $mask  = $('#mask');
+        var open   = 'open'; // class
+
+        $(function(){
+          $('.btn-trigger').on('click', function() {
+            $(this).toggleClass('active');
+            return false;
+          });
+        });
+        // menu open close
+        $btn.on( 'click', function() {
+          if ( ! $nav.hasClass( open ) ) {
+            $nav.addClass( open );
+          } else {
+            $nav.removeClass( open );
+          }
+        });
+      } )(jQuery);
+
+       ("#login-button").click(function(event){
+          event.preventDefault();
+
+         ('form').fadeOut(500);
+         ('.wrapper').addClass('form-success');
+       });
+      //この中に動かしたいJSを記載
+  });
+  //=====ここまで背景が伸びた後に動かしたいJSをまとめる
+
+
+
+
+
+});
+
+
+$('.home-btn').on('click', function() {
+
+    $('body').addClass('appear');//フェードアウト後bodyにappearクラス付与
+
+  //=====ここまでローディングエリア（splashエリア）を1.5秒でフェードアウトした後に動かしたいJSをまとめる
+
+ //=====ここから背景が伸びた後に動かしたいJSをまとめたい場合は
+  $('.splashbg').on('animationend', function() {
+    $('.visual-logo').addClass('appear');
+      $(function($) {
+        var $nav   = $('#navArea');
+        var $btn   = $('.btn-trigger');
+        var $mask  = $('#mask');
+        var open   = 'open'; // class
+
+        $(function(){
+          $('.btn-trigger').on('click', function() {
+            $(this).toggleClass('active');
+            return false;
+          });
+        });
+        // menu open close
+        $btn.on( 'click', function() {
+          if ( ! $nav.hasClass( open ) ) {
+            $nav.addClass( open );
+          } else {
+            $nav.removeClass( open );
+          }
+        });
+      } )(jQuery);
+
+       ("#login-button").click(function(event){
+          event.preventDefault();
+
+         ('form').fadeOut(500);
+         ('.wrapper').addClass('form-success');
+       });
 
       //この中に動かしたいJSを記載
   });
   //=====ここまで背景が伸びた後に動かしたいJSをまとめる
 
+
+
+
+
 });
-
-$(function(){
-  $('.btn-trigger').on('click', function() {
-    $(this).toggleClass('active');
-    return false;
-  });
-});
-
-$(function($) {
-  var $nav   = $('#navArea');
-  var $btn   = $('.btn-trigger');
-  var $mask  = $('#mask');
-  var open   = 'open'; // class
-  // menu open close
-  $btn.on( 'click', function() {
-    if ( ! $nav.hasClass( open ) ) {
-      $nav.addClass( open );
-    } else {
-      $nav.removeClass( open );
-    }
-  });
-} )(jQuery);
-
- ("#login-button").click(function(event){
-    event.preventDefault();
-
-   ('form').fadeOut(500);
-   ('.wrapper').addClass('form-success');
-});
-
